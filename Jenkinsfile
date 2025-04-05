@@ -89,7 +89,7 @@ pipeline {
                                 set -o pipefail
                                 ${env.SSHPASS_CMD} -p "${SUDO_PASS}" \\
                                     ssh -o StrictHostKeyChecking=no ${SUDO_USER}@${params.TARGET_IP} \\
-                                    "CLEAN=${params.DO_CLEAN} ~/packages_update.sh" \\
+                                    "eval \\"\\$(/opt/homebrew/bin/brew shellenv)\\";CLEAN=${params.DO_CLEAN} ~/packages_update.sh" \\
                                 | tee exec_output.log
                             """
                         } else {
