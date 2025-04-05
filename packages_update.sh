@@ -41,6 +41,7 @@ update_packages() {
     #  fi
       ;;
     Darwin)
+      eval "$(/opt/homebrew/bin/brew shellenv)"
       brew update 2>&1 | tee -a $LOGFILE
       brew upgrade 2>&1 | tee -a $LOGFILE
       brew cleanup 2>&1 | tee -a $LOGFILE
