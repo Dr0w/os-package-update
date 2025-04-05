@@ -34,10 +34,10 @@ update_packages() {
       ;;
     ubuntu)
     #  if [ "$VER" == "22" ] || [ "$VER" == "24" ]; then
-        sudo apt update 2>&1 | tee -a $LOGFILE
-        sudo apt -y upgrade 2>&1 | tee -a $LOGFILE
-        sudo apt -y autoremove 2>&1 | tee -a $LOGFILE
-        sudo apt clean 2>&1 | tee -a $LOGFILE
+        sudo apt-get update 2>&1 | tee -a $LOGFILE
+        sudo apt-get -y upgrade 2>&1 | tee -a $LOGFILE
+        sudo apt-get -y autoremove 2>&1 | tee -a $LOGFILE
+        sudo apt-get clean 2>&1 | tee -a $LOGFILE
     #  fi
       ;;
     Darwin)
