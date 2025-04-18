@@ -16,11 +16,6 @@ jobs:
       - name: Run script in container
         run: |
           docker run --rm -v ${{ github.workspace }}:/workspace ubuntu:latest /bin/bash -c "
-            apt-get update && \
-            apt-get install -y software-properties-common && \
-            add-apt-repository universe && \
-            apt-get update && \
-            apt-get install -y sshpass && \
             sed -i 's/sudo //g' /workspace/packages_update.sh && \
             chmod +x /workspace/packages_update.sh && \
             /workspace/packages_update.sh
